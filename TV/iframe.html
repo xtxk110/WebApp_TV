@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0"> 
+		<link href="css/iframe.css" rel="stylesheet" />
+		<script src="js/Common.js"></script>
+		<script src="js/AnalyzeInterface.js" type="text/javascript"></script>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<title></title>
+		<script>
+			var url;
+			var dataArr=GetInterfaceData();
+			var selectedUrl=dataArr[0];
+			window.onload=function(event){
+				url=GetQuery("rawurl","");
+				
+				$("#a1").click(function(){
+					plus.webview.getTopWebview().close();
+					location.replace("index.html");					
+					return false;
+				})
+				$("#a2").click(function(){;
+					var actionButtons=[];
+					for(i=1;i<=dataArr.length;i++){
+						actionButtons.push({title:"通用接口"+i});
+					}
+					var actionStyle={title:"解析接口列表",cancel:"取消"
+									 ,buttons:actionButtons};
+					plus.nativeUI.actionSheet(actionStyle,function(e){
+						if(e.index>0)
+							selectedUrl=dataArr[e.index-1];
+					});
+					return false;
+				});
+				$("#a3").click(function(){
+					var top=plus.webview.getTopWebview();
+					var href=top.getURL();
+					var index=href.indexOf("?url=");
+					if(index>=0){
+						href=href.substr(index+1);
+						href=GetQuery("url",href);
+					}
+					top.loadURL(selectedUrl+href);
+					return false;
+				});
+				$("#a4").click(function(){
+					plus.webview.getTopWebview().back();
+				});
+			}
+			function plusready(){
+				if(location.href.indexOf("#")>=0)
+					$("#a2,#a3").css("display","none");
+				plus.webview.open(url,url,{top:'8%',bottom:'0px'});
+
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<a id="a1" href="#">首页</a><a id="a4" href="#">返回</a><a id="a2" href="#">接口</a><a id="a3" href="#">解析</a>
+		</div>
+		<div id="interface"></div>
+		<!--<iframe id="frame1" name="frame1" src=""></iframe>-->
+		<script>			
+			if(window.plus)
+				plusready();
+			else
+				document.addEventListener("plusready",plusready,false);
+			
+		</script>
+	</body>
+</html>
