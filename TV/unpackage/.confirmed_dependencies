@@ -1,0 +1,14 @@
+{
+	"index.html": {
+		"href": "index.html",
+		"priority": 0,
+		"refer": [
+			"iframe.html"
+		]
+	},
+	"iframe.html": {
+		"refer": [
+			"index.html"
+		]
+	}
+}
