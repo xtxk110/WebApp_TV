@@ -122,9 +122,9 @@
                 "android": {
                     "mdpi": "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi": "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi": "E:/HBuilder/timg.png", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi": "E:/HBuilder/timg.png", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi": "E:/HBuilder/timg.png"/*1080P高分屏启动图片，分辨率：1080x1882*/
+                    "hdpi": "F:/GitHub/WebApp_TV/timg.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi": "F:/GitHub/WebApp_TV/timg.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi": "F:/GitHub/WebApp_TV/timg.png"/*1080P高分屏启动图片，分辨率：1080x1882*/
                 }
             }
         }
