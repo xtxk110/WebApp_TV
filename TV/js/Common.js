@@ -12,3 +12,16 @@ document.addEventListener('plusready', function() {
 //			});    
         });
 });
+
+function GetQuery(name,url) {
+
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r;
+            if(url!=""){
+            	r=url.match(reg);
+            }else
+            	r = window.location.search.substr(1).match(reg);//从?之后开始匹配如getQuery(courseid)返回一个数组["courseid=8","","8","&",index:0,input:"courseid=8"]
+            if (r != null) 
+            	return (r[2]);
+            return null;
+}

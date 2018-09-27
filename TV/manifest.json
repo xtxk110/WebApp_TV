@@ -154,5 +154,8 @@
 				"css/all.css"
 			]
 		}
-	}
+	},
+	"unpackage":[
+	  "js/AnalyzeInterface.js"
+	]
 }
