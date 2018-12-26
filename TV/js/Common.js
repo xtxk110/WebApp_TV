@@ -1,17 +1,31 @@
 
 document.addEventListener('plusready', function() {
-        //var webview = plus.webview.currentWebview();
         plus.key.addEventListener('backbutton', function() {
-        	plus.nativeUI.confirm("退出APP程序?",function(e){
+        	var top=plus.webview.getTopWebview();
+        	top.canBack(function(e){
+        		if(e.canBack){
+        			if(top.id==plus.webview.getLaunchWebview().id){
+        				var child= plus.webview.getLaunchWebview().children();
+        				for (i=0;i<child.length;i++) {
+        					child[i].close();
+        				}
+        				Quit();
+        			}else	
+        				top.back();
+        		}else{
+        			Quit();
+        		}
+        	});    
+        });
+});
+
+function Quit(){
+	plus.nativeUI.confirm("退出APP程序?",function(e){
                 	if(e.index==0){
                     	plus.runtime.quit();
                 	}
                 },{"title":"警示","buttons":["确认","取消"],"verticalAlign":"center"});
-//          webview.canBack(function(e) {
-//              
-//			});    
-        });
-});
+}
 
 function GetQuery(name,url) {
 
