@@ -6,14 +6,15 @@
 		<link href="css/iframe.css" rel="stylesheet" />
 		<script src="js/Common.js"></script>
 		<!--<script src="js/AnalyzeInterface.js" type="text/javascript"></script>-->
-		<script src="http://www.gotopsports.com/Content/AnalyzeInterface.js?r="+d.getTime()></script>
+		<!--<script src="http://www.gotopsports.com/Content/AnalyzeInterface.js?r="+new Date().getTime() ></script>-->
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<title></title>
 		<script>
 			var url;
-			var dataArr=GetInterfaceData();
-			var selectedUrl=dataArr[0];
+			
 			window.onload=function(event){
+				var dataArr=GetInterfaceData();
+				var selectedUrl=dataArr[0];
 				url=GetQuery("rawurl","");
 				
 				$("#a1").click(function(){
@@ -81,7 +82,8 @@
 		</div>
 		<div id="interface"></div>
 		<!--<iframe id="frame1" name="frame1" src=""></iframe>-->
-		<script>			
+		<script>
+			document.write('<script src="http://www.gotopsports.com/Content/AnalyzeInterface.js?r='+Math.random()+'"></\script>');
 			if(window.plus)
 				plusready();
 			else
