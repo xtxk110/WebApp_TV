@@ -8,8 +8,52 @@
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<title>天心TV</title>
 		<script type="text/javascript">
+// 下载
+function download(apkUrl) {
+	plus.nativeUI.showWaiting("下载更新文件...");
+	plus.downloader.createDownload(apkUrl, {filename:"_downloads/TV.apk"}, function(d, status) {
+		if(status == 200) {
+			install(d.filename); 
+		} else {
+			plus.nativeUI.alert("下载更新失败！");
+		}
+		plus.nativeUI.closeWaiting();
+	}).start();
+}
+// 更新应用资源  
+function install(path) {
+	plus.nativeUI.showWaiting("安装更新文件...");
+	plus.runtime.install(path, {}, function() {
+		plus.nativeUI.closeWaiting();
+		plus.nativeUI.alert("应用资源更新完成！", function() {
+			plus.runtime.restart();
+		});
+	}, function(e) {
+		plus.nativeUI.closeWaiting();
+		plus.nativeUI.alert("安装更新文件失败[" + e.code + "]：" + e.message);
+	});
+}
+//版本更新检测
+function checkUpdate( newVer,curVer ){
+    if(newVer>curVer){
+    	plus.nativeUI.confirm("检查到当前版本有最新更新，下载升级？",
+                        function(event){
+                            if(event.index ==0){
+                                download(obj.url); //下载更新版的地址
+                            }                        
+                        } ,'系统消息',['马上升级','下次再说']);
+    }
+}
+function plusready() {
+	plus.navigator.setUserAgent("Mozilla/5.0 (Linux; U; Android 2.3.7; en-us; XiaoMi Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+				plus.runtime.getProperty(plus.runtime.appid,function(info){
+					$("#version").text("ver:"+info.version);
+					checkUpdate(obj.ver,info.version);
+				});
+			};
 			var data;
 	        window.onload=function(e){
+	        	$("#head").attr("href",obj.url);
 	        	data=GetWebUrl();
 	        	if(data==null||data==undefined)
 	        		data=[	{name:"爱奇艺影视",url:"http://m.iqiyi.com/"},
@@ -30,10 +74,15 @@
 		</script>
 	</head>
 	<body>
-		<span>天心影院</span>
+		<span><a id="head" href="" style="text-decoration: none;color: #000">天心影院</a></span><span id="version" style="font-style: italic; font-size: 12px;padding-left: 4px;"></span>
 		<hr>
 		<script>
 			document.write('<script src="http://www.gotopsports.com/Content/Web.js?r='+Math.random()+'"></\script>');
+			if(window.plus)
+				plusready();
+			else
+				document.addEventListener("plusready",plusready,false);
+			
 		</script>
 	</body>
 
