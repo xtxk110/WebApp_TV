@@ -66,24 +66,29 @@
 				plus.webview.open(url,url,{top:'8%',bottom:'0px'});
 
 			}
-			function WebviewCloseAll(){
-				var wb=plus.webview.all();
-					for (i=0;i<wb.length;i++) {
-						if(wb[i].id==plus.webview.getLaunchWebview().id)
-							continue;
-						wb[i].close();
-					}
-			}
+			
 		</script>
 	</head>
 	<body>
 		<div>
 			<a id="a1" href="#">首页</a><a id="a4" href="#">返回</a><a id="a2" href="#">接口</a><a id="a3" href="#">解析</a>
 		</div>
-		<div id="interface"></div>
-		<!--<iframe id="frame1" name="frame1" src=""></iframe>-->
 		<script>
-			document.write('<script src="http://www.gotopsports.com/Content/AnalyzeInterface.js?r='+Math.random()+'"></\script>');
+			//document.write('<script src="http://www.gotopsports.com/Content/AnalyzeInterface.js?r='+Math.random()+'"></\script>');
+			$.ajax({
+				type:"get",
+				url:"http://www.gotopsports.com/Content/AnalyzeInterface.js?r="+Math.random(),
+				async:false,
+				dataType:"script",
+				error:function(){
+					$.ajax({
+						type:"get",
+						url:"http://raw.githack.com/xtxk110/All/master/AnalyzeInterface.js?r="+Math.random(),
+						async:false,
+						dataType:"script"
+					});
+				}
+			});
 			if(window.plus)
 				plusready();
 			else

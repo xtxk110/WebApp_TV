@@ -26,6 +26,7 @@ function install(path) {
 	plus.runtime.install(path, {}, function() {
 		plus.nativeUI.closeWaiting();
 		plus.nativeUI.alert("应用资源更新完成！", function() {
+			plus.storage.clear();
 			plus.runtime.restart();
 		});
 	}, function(e) {
@@ -36,12 +37,18 @@ function install(path) {
 //版本更新检测
 function checkUpdate( newVer,curVer ){
     if(newVer>curVer){
-    	plus.nativeUI.confirm("检查到当前版本有最新更新，下载升级？",
+    	var flag=plus.storage.getItem("isUpdate");
+    	//console.log(flag);
+    	if(!flag){
+    		plus.nativeUI.confirm("检查到当前版本有最新更新，下载升级？",
                         function(event){
                             if(event.index ==0){
                                 download(obj.url); //下载更新版的地址
-                            }                        
+                            } else
+                            	plus.storage.setItem("isUpdate","false");
                         } ,'系统消息',['马上升级','下次再说']);
+    	}
+    	
     }
 }
 function plusready() {
@@ -53,9 +60,13 @@ function plusready() {
 			};
 			var data;
 	        window.onload=function(e){
-	        	$("#head").attr("href",obj.url);
-	        	data=GetWebUrl();
-	        	if(data==null||data==undefined)
+	        	//console.log(obj.ver+","+obj.url);
+        		if(typeof(obj)!="undefined"){
+        			$("#head").attr("href",obj.url);
+        			data=GetWebUrl();
+        		}
+	        		
+	        	if(!data)
 	        		data=[	{name:"爱奇艺影视",url:"http://m.iqiyi.com/"},
                   		{name:"腾讯视频",url:"https://m.v.qq.com/"},
                   		{name:"优酷视频",url:"http://www.youku.com/"},
@@ -65,19 +76,39 @@ function plusready() {
                   		{name:"发烧屋影视",url:"http://www.hifiwu.com/#"},
                   		{name:"19影视",url:"http://www.vod19.com/#"},
                   		{name:"全民影院",url:"http://www.633tv.com/#"},
-                  		{name:"海兔影院",url:"http://www.haitum.com/#"} 
+                  		{name:"海兔影院",url:"http://www.haitum.com/#"}
 	         		];
 	         	for (i=0;i<data.length;i++) {
-	         		$("body").append('<div class="c"><a href="iframe.html?rawurl='+data[i].url+'"><span>'+data[i].name+'</span></a></div>')
+	         		$("#container>ul").append('<li class="c"><div id="item-content"><a  href="iframe.html?rawurl='+data[i].url+'"><span>'+data[i].name+'</span></a><div></li>')
 	         	}
 	        }
 		</script>
 	</head>
 	<body>
-		<span><a id="head" href="" style="text-decoration: none;color: #000">天心影院</a></span><span id="version" style="font-style: italic; font-size: 12px;padding-left: 4px;"></span>
-		<hr>
+		<div id="title">
+			<span><a id="head" href="" style="text-decoration: none;">天心影院</a></span><span id="version" style="font-style: italic; font-size: 12px;padding-left: 4px;"></span>
+		</div>
+		<div id="container">
+			<ul>
+			</ul>
+		</div>
+		<!--http://raw.githack.com/xtxk110/All/master/Web.js  http://www.gotopsports.com/Content/Web.js-->
 		<script>
-			document.write('<script src="http://www.gotopsports.com/Content/Web.js?r='+Math.random()+'"></\script>');
+			//document.write('<script src="http://raw.githack.com/xtxk110/All/master/Web.js?r='+Math.random()+'"></\script>');
+			$.ajax({
+				type:"get",
+				url:"http://www.gotopsports.com/Content/Web.js?r="+Math.random(),
+				async:false,
+				dataType:"script",
+				error:function(){
+					$.ajax({
+						type:"get",
+						url:"http://raw.githack.com/xtxk110/All/master/Web.js?r="+Math.random(),
+						async:false,
+						dataType:"script"
+					});
+				}
+			});
 			if(window.plus)
 				plusready();
 			else

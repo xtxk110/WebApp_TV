@@ -13,16 +13,31 @@ document.addEventListener('plusready', function() {
         			}else	
         				top.back();
         		}else{
-        			Quit();
+        			if(top.id==plus.webview.getLaunchWebview().id)
+        				Quit();
+        			else{
+        				WebviewCloseAll();
+        				location.replace("index.html");	
+        			}
         		}
         	});    
         });
 });
 
+function WebviewCloseAll(){
+				var wb=plus.webview.all();
+					for (i=0;i<wb.length;i++) {
+						if(wb[i].id==plus.webview.getLaunchWebview().id)
+							continue;
+						wb[i].close();
+					}
+			}
+
 function Quit(){
 	plus.nativeUI.confirm("退出APP程序?",function(e){
                 	if(e.index==0){
                     	plus.runtime.quit();
+                    	plus.storage.clear();
                 	}
                 },{"title":"警示","buttons":["确认","取消"],"verticalAlign":"center"});
 }
