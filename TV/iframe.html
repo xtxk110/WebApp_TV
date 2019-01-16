@@ -11,7 +11,7 @@
 		<title></title>
 		<script>
 			var url;
-			
+			var flag=false;
 			window.onload=function(event){
 				var dataArr=GetInterfaceData();
 				var selectedUrl=dataArr[0];
@@ -43,14 +43,22 @@
 						href=href.substr(index+1);
 						href=GetQuery("url",href);
 					}
+//					if(!flag){//解析时,模拟成PC端,可防止移动端产生广告
+//						SetUserAgent(false);
+//						flag=true;
+//					}
 					top.loadURL(selectedUrl+href);
 					return false;
 				});
 				$("#a4").click(function(){
 					var top=plus.webview.getTopWebview();
         			top.canBack(function(e){
-        			if(e.canBack)
+        			if(e.canBack){
+        				//SetUserAgent(true);
+        				//flag=false;
         				top.back();
+        			}
+        				
         			else{
         				WebviewCloseAll();
         				location.replace("index.html");	

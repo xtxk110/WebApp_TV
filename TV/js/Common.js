@@ -3,6 +3,7 @@ document.addEventListener('plusready', function() {
         plus.key.addEventListener('backbutton', function() {
         	var top=plus.webview.getTopWebview();
         	top.canBack(function(e){
+        		//SetUserAgent(true);
         		if(e.canBack){
         			if(top.id==plus.webview.getLaunchWebview().id){
         				var child= plus.webview.getLaunchWebview().children();
@@ -53,4 +54,11 @@ function GetQuery(name,url) {
             if (r != null) 
             	return (r[2]);
             return null;
+}
+
+function SetUserAgent(isMobile){ 
+	if(isMobile)
+		plus.navigator.setUserAgent("Mozilla/5.0 (Linux; U; Android 2.3.7; en-us; XiaoMi Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+	else
+		plus.navigator.setUserAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
 }

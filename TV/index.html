@@ -52,7 +52,7 @@ function checkUpdate( newVer,curVer ){
     }
 }
 function plusready() {
-	plus.navigator.setUserAgent("Mozilla/5.0 (Linux; U; Android 2.3.7; en-us; XiaoMi Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+				SetUserAgent(true);
 				plus.runtime.getProperty(plus.runtime.appid,function(info){
 					$("#version").text("ver:"+info.version);
 					checkUpdate(obj.ver,info.version);
