@@ -52,7 +52,7 @@ function checkUpdate( newVer,curVer ){
     }
 }
 function plusready() {
-				SetUserAgent(true);
+				//SetUserAgent(true);
 				plus.runtime.getProperty(plus.runtime.appid,function(info){
 					$("#version").text("ver:"+info.version);
 					checkUpdate(obj.ver,info.version);

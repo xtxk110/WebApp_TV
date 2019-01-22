@@ -23,6 +23,8 @@ document.addEventListener('plusready', function() {
         		}
         	});    
         });
+        document.addEventListener("pause", function(){plus.storage.clear();}, false);
+        document.addEventListener("background", function(){plus.storage.clear();}, false);
 });
 
 function WebviewCloseAll(){
