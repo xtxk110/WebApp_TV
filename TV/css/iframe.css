@@ -1,10 +1,10 @@
 *{margin: 0;padding: 0;border: 0; outline: none;box-sizing: border-box;}
 html,body{height: 100%;}
-body>div{height: 8%;vertical-align:middle;background-color: #C0C0C0;position: relative;
+#nav{height: 8%;vertical-align:middle;background-color: #C0C0C0;position: relative;
 box-shadow: 0 0 10px 5px #fff inset;border-bottom:1px solid yellow;}
-body>div a{text-decoration: none;color: #fff;position: absolute;font-size: 1.2rem;
+#nav a{text-decoration: none;color: #fff;position: absolute;font-size: 1.2rem;
 top: 50%;transform: translate(0,-50%);-webkit-transform: translate(0,-50%);-moz-transform: translate(0,-50%);}
-body>div a:first-child{left: 1rem;}
-body>div a:nth-child(2){left: 5rem;}
-body>div a:nth-child(3){right: 5rem;}
-body>div a:last-child{right: 1rem;}
+#nav a:first-child{left: 1rem;}
+#nav a:nth-child(2){left: 5rem;}
+#nav a:nth-child(3){right: 5rem;}
+#nav a:last-child{right: 1rem;}

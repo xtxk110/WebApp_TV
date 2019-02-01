@@ -10,7 +10,11 @@ width: 100%;text-align: center;}
 #title span{color: #fff;font-weight: 900;}
 #title a{color: #fff}
 
-#container{margin-top: 54px;}
+#live{margin-top: 60px;background-color:#C0C0C0;box-shadow: 0 0 10px 5px #fff inset;
+border-bottom:1px solid yellow;box-sizing: border-box;}
+#live>a{color: #fff;padding: 10px 0;display: block;width: 100%;}
+
+#container{margin-top: 0px;}
 #container>ul li{background-color: #C0C0C0;float: left;border-radius: 5px;border:1px solid yellow;box-shadow: 0 0 2px 2px #fff inset;}
 @media screen and (max-width: 249px) {
 	#container>ul li{position: relative;width:92%;padding-bottom: 46%;margin:2% 0 0 4%;}
