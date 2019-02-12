@@ -1,89 +1,115 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
 		<link href="css/all.css" rel="stylesheet" />
 		<script src="js/Common.js"></script>
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<title>天心TV</title>
 		<script type="text/javascript">
-// 下载
-function download(apkUrl) {
-	plus.nativeUI.showWaiting("下载更新文件...");
-	plus.downloader.createDownload(apkUrl, {filename:"_downloads/TV.apk"}, function(d, status) {
-		if(status == 200) {
-			install(d.filename); 
-		} else {
-			plus.nativeUI.alert("下载更新失败！");
-		}
-		plus.nativeUI.closeWaiting();
-	}).start();
-}
-// 更新应用资源  
-function install(path) {
-	plus.nativeUI.showWaiting("安装更新文件...");
-	plus.runtime.install(path, {}, function() {
-		plus.nativeUI.closeWaiting();
-		plus.nativeUI.alert("应用资源更新完成！", function() {
-			plus.storage.clear();
-			plus.runtime.restart();
-		});
-	}, function(e) {
-		plus.nativeUI.closeWaiting();
-		plus.nativeUI.alert("安装更新文件失败[" + e.code + "]：" + e.message);
-	});
-}
-//版本更新检测
-function checkUpdate( newVer,curVer ){
-    if(newVer>curVer){
-    	var flag=plus.storage.getItem("isUpdate");
-    	//console.log(flag);
-    	if(!flag){
-    		plus.nativeUI.confirm("检查到当前版本有最新更新，下载升级？",
-                        function(event){
-                            if(event.index ==0){
-                                download(obj.url); //下载更新版的地址
-                            } else
-                            	plus.storage.setItem("isUpdate","false");
-                        } ,'系统消息',['马上升级','下次再说']);
-    	}
-    	
-    }
-}
-function plusready() {
+			// 下载
+			function download(apkUrl) {
+				plus.nativeUI.showWaiting("下载更新文件...");
+				plus.downloader.createDownload(apkUrl, {
+					filename: "_downloads/TV.apk"
+				}, function(d, status) {
+					if(status == 200) {
+						install(d.filename);
+					} else {
+						plus.nativeUI.alert("下载更新失败！");
+					}
+					plus.nativeUI.closeWaiting();
+				}).start();
+			}
+			// 更新应用资源  
+			function install(path) {
+				plus.nativeUI.showWaiting("安装更新文件...");
+				plus.runtime.install(path, {}, function() {
+					plus.nativeUI.closeWaiting();
+					plus.nativeUI.alert("应用资源更新完成！", function() {
+						plus.storage.clear();
+						plus.runtime.restart();
+					});
+				}, function(e) {
+					plus.nativeUI.closeWaiting();
+					plus.nativeUI.alert("安装更新文件失败[" + e.code + "]：" + e.message);
+				});
+			}
+			//版本更新检测
+			function checkUpdate(newVer, curVer) {
+				if(newVer > curVer) {
+					var flag = plus.storage.getItem("isUpdate");
+					//console.log(flag);
+					if(!flag) {
+						plus.nativeUI.confirm("检查到当前版本有最新更新，下载升级？",
+							function(event) {
+								if(event.index == 0) {
+									download(obj.url); //下载更新版的地址
+								} else
+									plus.storage.setItem("isUpdate", "false");
+							}, '系统消息', ['马上升级', '下次再说']);
+					}
+
+				}
+			}
+
+			function plusready() {
 				//SetUserAgent(true);
-				plus.runtime.getProperty(plus.runtime.appid,function(info){
-					$("#version").text("ver:"+info.version);
-					checkUpdate(obj.ver,info.version);
+				plus.runtime.getProperty(plus.runtime.appid, function(info) {
+					$("#version").text("ver:" + info.version);
+					checkUpdate(obj.ver, info.version);
 				});
 			};
 			var data;
-	        window.onload=function(e){
-	        	//console.log(obj.ver+","+obj.url);
-        		if(typeof(obj)!="undefined"){
-        			$("#head").attr("href",obj.url);
-        			data=GetWebUrl();
-        		}
-	        		
-	        	if(!data)
-	        		data=[	{name:"爱奇艺影视",url:"http://m.iqiyi.com/"},
-                  		{name:"腾讯视频",url:"https://m.v.qq.com/"},
-                  		{name:"优酷视频",url:"http://www.youku.com/"},
-                  		{name:"搜狐视频",url:"https://m.tv.sohu.com/"},
-                  		{name:"乐视视频",url:"https://m.le.com/"}
-	         		];
-	         	for (i=0;i<data.length;i++) {
-	         		$("#container>ul").append('<li class="c"><div id="item-content"><a  href="iframe.html?rawurl='+data[i].url+'"><span>'+data[i].name+'</span></a><div></li>')
-	         	}
-	        }
+			window.onload = function(e) {
+				if(window.plus)
+					plusready();
+				else
+					document.addEventListener("plusready", plusready, false); 
+				//console.log(obj.ver+","+obj.url);
+				if(typeof(obj) != "undefined") {
+					$("#head").attr("href", obj.url);
+					data = GetWebUrl();
+				}
+
+				if(!data)
+					data = [{
+							name: "爱奇艺影视",
+							url: "http://m.iqiyi.com/"
+						},
+						{
+							name: "腾讯视频",
+							url: "https://m.v.qq.com/"
+						},
+						{
+							name: "优酷视频",
+							url: "http://www.youku.com/"
+						},
+						{
+							name: "搜狐视频",
+							url: "https://m.tv.sohu.com/"
+						},
+						{
+							name: "乐视视频",
+							url: "https://m.le.com/"
+						}
+					];
+				for(i = 0; i < data.length; i++) {
+					$("#container>ul").append('<li class="c"><div id="item-content"><a  href="iframe.html?rawurl=' + data[i].url + '"><span>' + data[i].name + '</span></a><div></li>')
+				}
+			}
 		</script>
 	</head>
+
 	<body>
 		<div id="title">
 			<span><a id="head" href="" style="text-decoration: none;">天心影院</a></span><span id="version" style="font-style: italic; font-size: 12px;padding-left: 4px;"></span>
 		</div>
-		<div id="live" ><a href="iframe.html?rawurl=http://zb.9300tv.com/#">精彩直播频道</a></div>
+		<div id="live">
+			<a href="iframe.html?rawurl=http://zb.9300tv.com/#">精彩直播频道</a>
+		</div>
 		<div id="container">
 			<ul>
 			</ul>
@@ -92,24 +118,19 @@ function plusready() {
 		<script>
 			//document.write('<script src="http://raw.githack.com/xtxk110/All/master/Web.js?r='+Math.random()+'"></\script>');
 			$.ajax({
-				type:"get",
-				url:"http://www.gotopsports.com/Content/Web.js?r="+Math.random(),
-				async:false,
-				dataType:"script",
-				error:function(){
+				type: "get",
+				url: "http://www.gotopsports.com/Content/Web.js?r=" + Math.random(),
+				async: false,
+				dataType: "script",
+				error: function() {
 					$.ajax({
-						type:"get",
-						url:"http://raw.githack.com/xtxk110/WebApp_TV/master/TV/Web.js?r="+Math.random(),
-						async:false,
-						dataType:"script"
+						type: "get",
+						url: "http://raw.githack.com/xtxk110/WebApp_TV/master/TV/Web.js?r=" + Math.random(),
+						async: false,
+						dataType: "script"
 					});
 				}
 			});
-			if(window.plus)
-				plusready();
-			else
-				document.addEventListener("plusready",plusready,false);
-			
 		</script>
 	</body>
 
