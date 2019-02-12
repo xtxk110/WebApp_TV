@@ -27,6 +27,10 @@
 			function install(path) {
 				plus.nativeUI.showWaiting("安装更新文件...");
 				plus.runtime.install(path, {}, function() {
+					plus.io.requestFileSystem("_downloads/TV.apk", function(fs) {
+						// 获取文件成功后,可通过fs进行文件操作 
+						fs.remove();
+					});
 					plus.nativeUI.closeWaiting();
 					plus.nativeUI.alert("应用资源更新完成！", function() {
 						plus.storage.clear();
@@ -67,7 +71,7 @@
 				if(window.plus)
 					plusready();
 				else
-					document.addEventListener("plusready", plusready, false); 
+					document.addEventListener("plusready", plusready, false);
 				//console.log(obj.ver+","+obj.url);
 				if(typeof(obj) != "undefined") {
 					$("#head").attr("href", obj.url);
@@ -127,7 +131,15 @@
 						type: "get",
 						url: "http://raw.githack.com/xtxk110/WebApp_TV/master/TV/Web.js?r=" + Math.random(),
 						async: false,
-						dataType: "script"
+						dataType: "script",
+						error: function() {
+							$.ajax({
+								type: "get",
+								url: "http://raw.githack.com/xtxk110/WebApp_TV/master/TV/Web.js?r=" + Math.random(),
+								async: false,
+								dataType: "script"
+							});
+						}
 					});
 				}
 			});
