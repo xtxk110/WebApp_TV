@@ -75,6 +75,7 @@
 				//console.log(obj.ver+","+obj.url);
 				if(typeof(obj) != "undefined") {
 					$("#head").attr("href", obj.url);
+					$("#live>a").attr("href", "iframe.html?rawurl="+obj.live+"#");
 					data = GetWebUrl();
 				}
 
