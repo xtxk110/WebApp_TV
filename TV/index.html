@@ -27,7 +27,7 @@
 			function install(path) {
 				plus.nativeUI.showWaiting("安装更新文件...");
 				plus.runtime.install(path, {}, function() {
-					plus.io.requestFileSystem("_downloads/TV.apk", function(fs) {
+					plus.io.resolveLocalFileSystemURL("_downloads/TV.apk", function(fs) {
 						// 获取文件成功后,可通过fs进行文件操作 
 						fs.remove();
 					});
