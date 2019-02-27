@@ -135,7 +135,8 @@
 				"href": "index.html",
 				"priority": 0,
 				"refer": [
-					"iframe.html"
+					"iframe.html",
+					"live.html"
 				]
 			},
 			"iframe.html": {
