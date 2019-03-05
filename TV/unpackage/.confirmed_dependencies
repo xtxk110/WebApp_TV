@@ -1,15 +1,15 @@
 {
-	"index.html": {
-		"href": "index.html",
-		"priority": 0,
-		"refer": [
-			"iframe.html",
-			"live.html"
-		]
-	},
-	"iframe.html": {
-		"refer": [
-			"index.html"
-		]
-	}
+  "index.html": {
+    "href": "index.html",
+    "priority": 0,
+    "refer": [
+      "iframe.html",
+      "live.html"
+    ]
+  },
+  "iframe.html": {
+    "refer": [
+      "index.html"
+    ]
+  }
 }

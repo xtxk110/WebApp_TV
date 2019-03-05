@@ -3,7 +3,7 @@
     "id": "H59EA8336",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "TV",/*应用名称，程序桌面图标名称*/
     "version": {
-        "name": "5.0",/*应用版本名称*/
+        "name": "5.1",/*应用版本名称*/
         "code": ""
     },
     "description": "可以免费观看优酷,爱奇艺,腾讯VIP视频,(APP限制除外)",/*应用描述信息*/
@@ -35,7 +35,7 @@
             "waiting": false/*是否在程序启动界面显示等待雪花，true表示显示，false表示不显示。*/
         },
         "popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
-        "runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+        "runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
         "signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
         "distribute": {
             "apple": {
