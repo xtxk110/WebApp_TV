@@ -5,7 +5,7 @@ function GetWebUrl(){
                   {name:"优酷视频",url:"http://www.youku.com/"},
                   {name:"搜狐视频",url:"https://m.tv.sohu.com/"},
                   {name:"乐视视频",url:"https://m.le.com/"},
-                  //{name:"365电影",url:"https://www.365dy.cn/#"},
+                  {name:"全民电影网",url:"https://www.qmndy.com/#"},
                   {name:"88影视",url:"https://m.88ys.cn/#"},
                   {name:"全民影院",url:"http://www.633tv.com/#"}
 	         ];
