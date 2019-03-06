@@ -24,3 +24,9 @@ var AdReject=[
 // 88影视网 https://m.88ys.cn/ 
 ,{match:"https://kim.lfhnkp.com/5380.*",redirect:"Empty.js"}
 ]
+
+var AdJs="var d=document.querySelectorAll('[style*=z-index]');"+
+		 "for (i=0;i<d.length;i++) {var z=d[i].style.zIndex; "+
+		 "if(z==2147483646 ||z==2147483647) "+
+		 "d[i].style.display='none';"+
+		 "}";
