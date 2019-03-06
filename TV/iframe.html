@@ -94,18 +94,19 @@
 							match: "https://m.88ys.cn/template/wap88ysw/ads/tj.js",
 							redirect: "Empty.js"
 						}]);
-						view.onloaded = function(event) {
+						view.addEventListener("loaded",function(event) {
 							view.evalJS("var d=document.querySelectorAll('[style*=z-index]');" +
 								"for (i=0;i<d.length;i++) {var z=d[i].style.zIndex; " +
 								"if(z==2147483646 ||z==2147483647) " +
 								"d[i].style.display='none';" +
 								"}");
-						}
+						});
 					} else {
 						view.overrideResourceRequest(AdReject);
-						view.onloaded = function(event) {
-							view.evalJS(AdJs);
-						}
+						view.evalJS(AdJs);
+//						view.addEventListener("loaded",function(event) {
+//							view.evalJS(AdJs);
+//						});
 					}
 				}
 				view.show();
