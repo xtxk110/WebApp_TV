@@ -70,6 +70,48 @@
 				});
 			};
 
+			function clearAd() {
+				if(typeof(AdReject) == "undefined") {
+					view.overrideResourceRequest([{
+						match: "https://js.users.51.la/19598991.js",
+						redirect: "Empty.js"
+					}, {
+						match: "https://s23.cnzz.com/z_stat.php?id=1276226633&web_id=1276226633",
+						redirect: "Empty.js"
+					}, {
+						match: "https://c.cnzz.com/core.php?web_id=1276226633&t=z",
+						redirect: "Empty.js"
+					}, {
+						match: "http://y.yeaimm.com/81960",
+						redirect: "Empty.js"
+					}, {
+						match: "https://m.88ys.cn/template/wap88ysw/ads/tj.js",
+						redirect: "Empty.js"
+					}]);
+					view.addEventListener("loaded", function(event) {
+						view.evalJS("var d=document.querySelectorAll('[style*=z-index]');" +
+							"for (i=0;i<d.length;i++) {var z=d[i].style.zIndex; " +
+							"if(z>=2147483000) " +
+							"d[i].style.display='none';" +
+							"}");
+					});
+				} else {
+					view.overrideResourceRequest(AdReject);
+					view.addEventListener("loading", function(event) {
+						view.evalJS(AdJs);
+					});
+					view.addEventListener("progressChanged", function(event) {
+						view.evalJS(AdJs);
+					});
+					view.addEventListener("titleUpdate", function(event) {
+						view.evalJS(AdJs);
+					});
+					view.addEventListener("loaded", function(event) {
+						view.evalJS(AdJs);
+					});
+				}
+			}
+
 			function plusready() {
 				var view = plus.webview.create(url, url, {
 					top: '8%',
@@ -77,39 +119,11 @@
 				});
 				if(location.href.indexOf("#") >= 0) {
 					$("#a2,#a3").css("display", "none");
-					if(typeof AdReject == "undefined") {
-						view.overrideResourceRequest([{
-							match: "https://js.users.51.la/19598991.js",
-							redirect: "Empty.js"
-						}, {
-							match: "https://s23.cnzz.com/z_stat.php?id=1276226633&web_id=1276226633",
-							redirect: "Empty.js"
-						}, {
-							match: "https://c.cnzz.com/core.php?web_id=1276226633&t=z",
-							redirect: "Empty.js"
-						}, {
-							match: "http://y.yeaimm.com/81960",
-							redirect: "Empty.js"
-						}, {
-							match: "https://m.88ys.cn/template/wap88ysw/ads/tj.js",
-							redirect: "Empty.js"
-						}]);
-						view.addEventListener("loaded",function(event) {
-							view.evalJS("var d=document.querySelectorAll('[style*=z-index]');" +
-								"for (i=0;i<d.length;i++) {var z=d[i].style.zIndex; " +
-								"if(z==2147483646 ||z==2147483647) " +
-								"d[i].style.display='none';" +
-								"}");
-						});
-					} else {
-						view.overrideResourceRequest(AdReject);
-						view.addEventListener("loading",function(event) {
-							view.evalJS(AdJs);
-						});
-						view.addEventListener("loaded",function(event) {
-							view.evalJS(AdJs);
-						});
-					}
+					if(typeof(ClearAll)=="undefined"||!ClearAll){
+						if(location.search.indexOf("no") < 0)
+							clearAd();
+					}else
+						clearAd();	 
 				}
 				view.show();
 			}

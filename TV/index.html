@@ -25,31 +25,32 @@
 			}
 			// 更新应用资源  
 			function install(path) {
-				plus.nativeUI.showWaiting("安装更新文件...");
-				plus.runtime.install(path, {}, function() {
-					plus.io.resolveLocalFileSystemURL("_downloads/TV.apk", function(fs) {
-						// 获取文件成功后,可通过fs进行文件操作 
-						fs.remove();
-					});
-					plus.nativeUI.closeWaiting();
+				plus.runtime.install(path, function() {
+
 					plus.nativeUI.alert("应用资源更新完成！", function() {
 						plus.storage.clear();
 						plus.runtime.restart();
 					});
 				}, function(e) {
-					plus.nativeUI.closeWaiting();
-					plus.nativeUI.alert("安装更新文件失败[" + e.code + "]：" + e.message);
+					plus.nativeUI.alert("安装更新文件失败");
 				});
 			}
 			//版本更新检测
 			function checkUpdate(newVer, curVer) {
 				if(newVer > curVer) {
 					var flag = plus.storage.getItem("isUpdate");
-					//console.log(flag);
+
 					if(!flag) {
 						plus.nativeUI.confirm("检查到当前版本有最新更新，下载升级？",
 							function(event) {
 								if(event.index == 0) {
+									//下载前删除原有的更新文件
+									plus.io.resolveLocalFileSystemURL("_downloads/TV.apk", function(entry) {
+										entry.remove(function() {}, function(e) {
+											plus.nativeUI.alert(e.message);
+										});
+									});
+									
 									download(obj.url); //下载更新版的地址
 								} else
 									plus.storage.setItem("isUpdate", "false");
@@ -75,7 +76,7 @@
 				//console.log(obj.ver+","+obj.url);
 				if(typeof(obj) != "undefined") {
 					$("#head").attr("href", obj.url);
-					$("#live>a").attr("href", "iframe.html?rawurl="+obj.live+"#");
+					$("#live>a").attr("href", "iframe.html?rawurl=" + obj.live + "#");
 					data = GetWebUrl();
 				}
 
@@ -100,8 +101,11 @@
 							name: "乐视视频",
 							url: "https://m.le.com/"
 						},
-						{name:"全民影院",url:"http://www.yanll.cn/#"}
-					];//iframe.html?rawurl=http://zb.9300tv.com/#
+						{
+							name: "全民影院",
+							url: "http://www.yanll.cn/#"
+						}
+					]; //iframe.html?rawurl=http://zb.9300tv.com/#
 				for(i = 0; i < data.length; i++) {
 					$("#container>ul").append('<li class="c"><div id="item-content"><a  href="iframe.html?rawurl=' + data[i].url + '"><span>' + data[i].name + '</span></a><div></li>')
 				}
