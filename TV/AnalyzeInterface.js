@@ -25,25 +25,16 @@ var AdReject=[
 ,{match:"https://kim.lfhnkp.com/5380.*",redirect:"Empty.js"}
 ]
 
-//var AdJs="var d=document.querySelectorAll('[style*=z-index]');"+
-//		 "for (i=0;i<d.length;i++) {var z=d[i].style.zIndex; "+
-//		 "if(z==2147483646 ||z==2147483647) "+
-//		 "d[i].style.display='none';"+
-//		 "}";
 var AdJs=""+
-"var f=false;"+
 "function ClearAd(){"+
 	"var d=document.querySelectorAll('[style*=z-index]');"+
 	"for (i=0;i<d.length;i++) {"+
 		"var z=d[i].style.zIndex;"+
-		"if(z==2147483646 ||z==2147483647){"+
+		"if(z>=2147483000){"+
 			"d[i].style.display='none';"+
-			"f=true;"+
 			"break;"+
 		"}"+	
 	"}"+
-	"if(!f)"+
-		"setTimeout(function(){ClearAd();},100);"+
 "}"+
-"setTimeout(function(){ClearAd();},100);"+
+"setTimeout(function(){ClearAd();},1000);"+
 "";

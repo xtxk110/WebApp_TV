@@ -103,10 +103,12 @@
 						});
 					} else {
 						view.overrideResourceRequest(AdReject);
-						view.evalJS(AdJs);
-//						view.addEventListener("loaded",function(event) {
-//							view.evalJS(AdJs);
-//						});
+						view.addEventListener("loading",function(event) {
+							view.evalJS(AdJs);
+						});
+						view.addEventListener("loaded",function(event) {
+							view.evalJS(AdJs);
+						});
 					}
 				}
 				view.show();
