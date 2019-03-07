@@ -70,7 +70,7 @@
 				});
 			};
 
-			function clearAd() {
+			function clearAd(view) {
 				if(typeof(AdReject) == "undefined") {
 					view.overrideResourceRequest([{
 						match: "https://js.users.51.la/19598991.js",
@@ -121,9 +121,9 @@
 					$("#a2,#a3").css("display", "none");
 					if(typeof(ClearAll)=="undefined"||!ClearAll){
 						if(location.search.indexOf("no") < 0)
-							clearAd();
+							clearAd(view);
 					}else
-						clearAd();	 
+						clearAd(view);	 
 				}
 				view.show();
 			}
