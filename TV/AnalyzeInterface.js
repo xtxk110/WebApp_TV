@@ -21,7 +21,7 @@ var AdReject=[
 {match:"https://js.users.51.la/19598991.js",redirect:"Empty.js"}
 ,{match:"https://s23.cnzz.com/z_stat.php?id=1276226633&web_id=1276226633",redirect:"Empty.js"}
 ,{match:"https://c.cnzz.com/core.php?web_id=1276226633&t=z",redirect:"Empty.js"}
-,{match:"http://y.yeaimm.com/*",redirect:"Empty.js"}
+,{match:"http://y.yeaimm.com/.*",redirect:"Empty.js"}
 ,{match:"https://m.puzwb.cn/.*",redirect:"Empty.js"}
 ,{match:"https://m.kfuih.cn/.*",redirect:"Empty.js"}
 // 88影视网 https://m.88ys.cn/ 
