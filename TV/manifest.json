@@ -1,6 +1,6 @@
 {
     "@platforms" : [ "android", "iPhone", "iPad" ],
-    "id" : "H5E53AAE9", /*应用的标识，创建应用时自动生成，勿手动修改*/
+    "id" : "H59EA8336", /*应用的标识，创建应用时自动生成，勿手动修改*/
     "name" : "TV", /*应用名称，程序桌面图标名称*/
     "version" : {
         "name" : "6.0", /*应用版本名称*/
@@ -182,8 +182,7 @@
                     "xxhdpi" : "F:/GitHub/WebApp_TV/cover.png" /*1080P高分屏启动图片，分辨率：1080x1882*/
                 }
             }
-        },
-        "adid" : "128016130506"
+        }
     },
     "dependencies" : {
         "pages" : {
