@@ -3,6 +3,7 @@ function GetInterfaceData(){
 	var data=[    		     
 						"https://jx.618g.com/?url=",
 						"http://api.smq1.com/?url=",
+                        "https://z1.m1907.cn/?jx=",
 						"http://api.51ckm.com/Box.php?url=",
 						"http://vip.ooosoo.com/jx/?url=", 
 						"http://api.zuilingxian.com/jiexi.php?url=",
@@ -34,7 +35,7 @@ var AdJs=""+
 	"var d=document.querySelectorAll('[style*=z-index]');"+
 	"for (i=0;i<d.length;i++) {"+
 		"var z=d[i].style.zIndex;"+
-		"if(z>=2147483000){"+
+		"if(z>=2147480000){"+
 			"d[i].style.display='none';"+
 			"break;"+
 		"}"+	
