@@ -27,10 +27,10 @@ var AdReject=[
 //清除广告脚本  z>=2147480000 "break;"+
 var AdJs=""+
 "function ClearAd(){"+
-	"var d=document.querySelectorAll('[style*=z-index],[style*=bottom]');"+
+	"var d=document.querySelectorAll('[style*=z-index],[style*=position]');"+
 	"for (i=0;i<d.length;i++) {"+
 		"var z=d[i].style.zIndex;var s=d[i].style"+
-		"if(z>=100000||(s.position=='fixed'&&(s.bottom==0||s.bottom=='0px'))){"+
+		"if(z>=100000||((s.position=='fixed||s.position=='absolute')'&&(s.bottom==0||s.bottom=='0px'))){"+
 			"d[i].style.display='none';"+
 			
 		"}"+	
