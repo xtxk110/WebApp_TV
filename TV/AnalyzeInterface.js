@@ -4,14 +4,10 @@ function GetInterfaceData(){
 						"https://jx.618g.com/?url=",
 						"http://api.smq1.com/?url=",
                         "https://z1.m1907.cn/?jx=",
-						"http://api.51ckm.com/Box.php?url=",
 						"http://vip.ooosoo.com/jx/?url=", 
 						"http://api.zuilingxian.com/jiexi.php?url=",
-						"http://api.baiyug.cn/vip/?url=",   
-						"https://jx.km58.top/jx/?url=",
-						"https://cdn.yangju.vip/k/?url=",
-						"http://www.wmxz.wang/video.php?url=",
-						"http://jqaaa.com/jx.php?url="
+                        "http://api.51ckm.com/Box.php?url=",
+						"https://cdn.yangju.vip/k/?url="
 						
 			];
 	return data;
@@ -29,15 +25,15 @@ var AdReject=[
 ,{match:"https://kim.lfhnkp.com/5380.*",redirect:"Empty.js"}
 ]
 
-//清除广告脚本
+//清除广告脚本  z>=2147480000 "break;"+
 var AdJs=""+
 "function ClearAd(){"+
 	"var d=document.querySelectorAll('[style*=z-index]');"+
 	"for (i=0;i<d.length;i++) {"+
 		"var z=d[i].style.zIndex;"+
-		"if(z>=2147480000){"+
+		"if(z>=100000){"+
 			"d[i].style.display='none';"+
-			"break;"+
+			
 		"}"+	
 	"}"+
 "}"+

@@ -7,7 +7,7 @@ function GetWebUrl(){
                   {name:"乐视视频",url:"https://m.le.com/"},
                   {name:"全民电影网",url:"https://www.qmndy.com/#?no"},
                   {name:"88影视",url:"https://m.88ys.cn/#"},
-                  {name:"全民影院",url:"http://www.633tv.com/#"}
+                  {name:"全民影院",url:"http://www.70bt.cn/#"}
 	         ];
 	return data;
 }
