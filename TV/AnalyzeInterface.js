@@ -6,8 +6,7 @@ function GetInterfaceData(){
                         "https://z1.m1907.cn/?jx=",
 						"http://vip.ooosoo.com/jx/?url=", 
 						"http://api.zuilingxian.com/jiexi.php?url=",
-                        "http://api.51ckm.com/Box.php?url=",
-						"https://cdn.yangju.vip/k/?url="
+                        "http://api.51ckm.com/Box.php?url="
 						
 			];
 	return data;
