@@ -118,13 +118,13 @@
 					bottom: '0px'
 				});
 				if(location.href.indexOf("#") >= 0) {
-					$("#a2,#a3").css("display", "none");
-					if(typeof(ClearAll)=="undefined"||!ClearAll){
-						if(location.search.indexOf("no") < 0)
-							clearAd(view);
-					}else
-						clearAd(view);	 
+					$("#a2,#a3").css("display", "none");		 
 				}
+				if(typeof(ClearAll)=="undefined"||!ClearAll){
+					if(location.search.indexOf("no") >= 0)
+						clearAd(view);
+				}else
+					clearAd(view);
 				view.show();
 			}
 		</script>
