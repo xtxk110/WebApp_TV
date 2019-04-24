@@ -4,9 +4,9 @@ function GetInterfaceData(){
 						"https://jx.618g.com/?url=",
 						"http://api.smq1.com/?url=",
                         "https://z1.m1907.cn/?jx=",
-						"http://vip.ooosoo.com/jx/?url=", 
 						"http://api.zuilingxian.com/jiexi.php?url=",
-                        "http://api.51ckm.com/Box.php?url="
+                        "http://api.51ckm.com/Box.php?url=",
+						"http://vip.ooosoo.com/jx/?url="
 						
 			];
 	return data;
