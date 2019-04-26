@@ -71,8 +71,6 @@
 			};
 
 			function clearAd(view) {
-				if(typeof(AdReject) != "undefined") 
-					view.overrideResourceRequest(AdReject);
 				if(typeof(AdJs) != "undefined"){					
 					view.addEventListener("loading", function(event) {
 						view.evalJS(AdJs);

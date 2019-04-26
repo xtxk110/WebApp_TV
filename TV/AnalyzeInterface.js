@@ -13,18 +13,7 @@ function GetInterfaceData(){
 			];
 	return data;
 }
-var AdReject=[
 
-//全民影院网站广告脚本
-{match:"https://js.users.51.la/19598991.js",redirect:"Empty.js"}
-,{match:"https://s23.cnzz.com/z_stat.php?id=1276226633&web_id=1276226633",redirect:"Empty.js"}
-,{match:"https://c.cnzz.com/core.php?web_id=1276226633&t=z",redirect:"Empty.js"}
-,{match:"http://y.yeaimm.com/.*",redirect:"Empty.js"}
-,{match:"https://m.puzwb.cn/.*",redirect:"Empty.js"}
-,{match:"https://m.kfuih.cn/.*",redirect:"Empty.js"}
-// 88影视网 https://m.88ys.cn/ 
-,{match:"https://kim.lfhnkp.com/5380.*",redirect:"Empty.js"}
-]
 
 //清除广告脚本  z>=2147480000 "break;"+
 var AdJs=""+
