@@ -72,18 +72,7 @@
 
 			function clearAd(view) {
 				if(typeof(AdJs) != "undefined"){					
-					view.addEventListener("loading", function(event) {
-						view.evalJS(AdJs);
-					});
-					view.addEventListener("progressChanged", function(event) {
-						view.evalJS(AdJs);
-					});
-					view.addEventListener("titleUpdate", function(event) {
-						view.evalJS(AdJs);
-					});
-					view.addEventListener("loaded", function(event) {
-						view.evalJS(AdJs);
-					});
+					view.evalJS(AdJs);
 				}
 			}
 
