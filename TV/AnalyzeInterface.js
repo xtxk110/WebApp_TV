@@ -1,12 +1,9 @@
 ﻿//获取接口数据
 function GetInterfaceData(){
 	var data=[    		     
-						"https://jx.618g.com/?url=",
-						"http://api.smq1.com/?url=",
-                        "https://z1.m1907.cn/?jx=",
-						"http://api.zuilingxian.com/jiexi.php?url=",
-                        "http://api.51ckm.com/Box.php?url=",
-						"http://vip.ooosoo.com/jx/?url="
+						"https://z1.m1907.cn/?jx=",
+                        "http://jx.duzhiqiang.com/?url=",
+                        "http://y.mt2t.com/lines?url="
 						
 			];
 	return data;
