@@ -3,7 +3,7 @@
     "id" : "com.tianxin.tv", /*应用的标识，创建应用时自动生成，勿手动修改*/
     "name" : "TV", /*应用名称，程序桌面图标名称*/
     "version" : {
-        "name" : "6.3", /*应用版本名称*/
+        "name" : "6.4", /*应用版本名称*/
         "code" : ""
     },
     "description" : "可以免费观看优酷,爱奇艺,腾讯VIP视频", /*应用描述信息*/
@@ -36,7 +36,7 @@
             "waiting" : false /*是否在程序启动界面显示等待雪花，true表示显示，false表示不显示。*/
         },
         "popGesture" : "close", /*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
-        "runmode" : "normal", /*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+        "runmode" : "liberate", /*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
         "signature" : "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==", /*可选，保留给应用签名，暂不使用*/
         "distribute" : {
             "apple" : {
@@ -60,27 +60,7 @@
                 "password" : "", /*Android应用打包使用密钥库中证书的密码*/
                 "aliasname" : "", /*Android应用打包使用密钥库中证书的别名*/
                 "schemes" : [ "tianxin" ], /*Android应用urlScheme*/
-                "permissions" : [
-                "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>"
-                ,"<uses-permission android:name=\"android.permission.CLEAR_APP_USER_DATA\"/>"
-                ,"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>"
-                ,"<uses-permission android:name=\"android.permission.DELETE_PACKAGES\"/>"
-                ,"<uses-permission android:name=\"android.permission.VIBRATE\"/>"
-                ,"<uses-permission android:name=\"android.permission.CLEAR_APP_CACHE\"/>"
-                ,"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>"
-                ,"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>"
-                ,"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>"
-                ,"<uses-permission android:name=\"android.permission.MANAGE_DOCUMENTS\"/>"
-                ,"<uses-permission android:name=\"android.permission.INSTALL_PACKAGES\"/>"
-                ,"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>"
-                ,"<uses-feature android:name=\"android.hardware.camera\"/>"
-                ,"<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>"
-                ,"<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>"
-                ,"<uses-permission android:name=\"android.permission.BIND_TV_INPUT\"/>"
-                ,"<uses-permission android:name=\"android.permission.MOUNT_FORMAT_FILESYSTEMS\"/>"
-                ,"<uses-permission android:name=\"android.permission.DELETE_CACHE_FILES\"/>"
-                ,"<uses-permission android:name=\"android.permission.CAMERA\"/>"
-                ]
+                "permissions" : ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.CLEAR_APP_USER_DATA\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.DELETE_PACKAGES\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.CLEAR_APP_CACHE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.MANAGE_DOCUMENTS\"/>","<uses-permission android:name=\"android.permission.INSTALL_PACKAGES\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.BIND_TV_INPUT\"/>","<uses-permission android:name=\"android.permission.MOUNT_FORMAT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.DELETE_CACHE_FILES\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
             },
             /*使用Native.js调用原生安卓API需要使用到的系统权限*/
             "orientation" : ["portrait-primary","landscape-primary"], /*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
@@ -164,9 +144,9 @@
                 "android" : {
                     "mdpi" : "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi" : "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi" : "E:/github/WebApp_TV/cover.png", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi" : "E:/github/WebApp_TV/cover.png", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi" : "E:/github/WebApp_TV/cover.png" /*1080P高分屏启动图片，分辨率：1080x1882*/
+                    "hdpi" : "F:/GitHub/WebApp_TV/cover.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi" : "F:/GitHub/WebApp_TV/cover.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi" : "F:/GitHub/WebApp_TV/cover.png" /*1080P高分屏启动图片，分辨率：1080x1882*/
                 }
             }
         },"adid":"128016130506"

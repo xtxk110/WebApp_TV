@@ -71,9 +71,16 @@
 			};
 
 			function clearAd(view) {
-				if(typeof(AdJs) != "undefined"){					
-					view.evalJS(AdJs);
+//				if(typeof(AdJs) != "undefined"){					
+//					view.evalJS(AdJs);
+//				}
+				if(typeof AdReject !="undefined"){
+					var options=[];
+					for(i=0;i<AdReject.length;i++)
+						options.push({match:AdReject[i],redirect:"_www/Empty.js"});
+					view.overrideResourceRequest(options);
 				}
+					
 			}
 
 			function plusready() {
@@ -84,8 +91,9 @@
 				if(location.href.indexOf("#") >= 0) {
 					$("#a2,#a3").css("display", "none");		 
 				}
-				if(typeof(ClearAll)=="undefined"||!ClearAll){
-					if(location.search.indexOf("no") >= 0)
+				//去除广告
+				if(typeof ClearAll==null|| !ClearAll){
+					if(location.href.indexOf("?no"))
 						clearAd(view);
 				}else
 					clearAd(view);
