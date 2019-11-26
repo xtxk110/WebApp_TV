@@ -1,0 +1,332 @@
+<html><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+                <title>手机电视</title>
+		<link rel="stylesheet" type="text/css" href="http://www.cietv.com/shoujidianshi/hui3.0/hui1.css">
+		<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+		<style>
+		    *{margin:0; padding:0; font-size:15px; color:#000000; outline:none; -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; font-style:normal; -webkit-tap-highlight-color:transparent; font-family:sans-serif;}
+			div{overflow:hidden;}
+			::-webkit-scrollbar{display:none;}
+			a{color:#000000; text-decoration:none; -webkit-tap-highlight-color:rgba(200,200,200,0.2);}
+			a:active{color:#000000;}
+			img{border:none;}
+			ul{list-style-type:none;}
+			body{background:#F0EFF5; -webkit-user-select:none; -moz-user-select:none;}
+			input{-webkit-appearance: none; -moz-appearance: none; -o-appearance: none; appearance: none;}
+			textarea{resize:none; background:inherit;}
+			.hui-header{display:flex; width:100%; height:44px; text-align:center; top:0px; left:0px; position:fixed; z-index:19; background:#3388FF;}
+            .hui-header h1{font-size:18px; height:44px; line-height:44px; overflow:hidden; width:100%; padding:0px 38px 0px 38px; text-align:center; font-weight:400; white-space:nowrap; text-overflow:ellipsis; color:#FFF;}
+            .hui-header + .hui-wrap{padding-top:44px;}
+			.hui-flex{display:flex;}
+			.hui-wrap{width:100%;}
+			.hui-list{padding:0px; border:1px solid #E4E3E6; border-left:0; border-right:0; background:#FFFFFF;}
+			.hui-list li{position:relative; display:flex; width:100%; overflow:hidden; height:50px;}
+			.hui-list li > a, .hui-list > a{display:flex; width:100%; height:50px; overflow:hidden;}
+			.hui-list li:active, .hui-list > a:active{background-color:#ECECEC;}
+			.hui-list-text{line-height:49px; height:49px; width:100%; margin-left:12px; border-bottom:1px solid #E4E3E6; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; display:flex; justify-content:space-between;}
+			.hui-list-text-content{width:100%; white-space:nowrap; text-overflow:ellipsis;}
+			.hui-list-icons{margin:14px 0px; width:40px; text-align:center; flex-shrink:0; font-size:25px; text-align:center; line-height:22px; color:#3388FF;}
+			.hui-list-icons img{width:22px; margin-left:12px;}
+			.hui-list-info{color:#999; float:right; padding-right:6px !important; font-size:13px; flex-shrink:0;}
+			.hui-list-info *{color:#999; font-size:13px;}
+			.hui-list li:last-child .hui-list-text, .hui-list > a:last-child .hui-list-text{border:0;}
+			#list {
+				overflow-y: auto;
+				height: 100%;
+				margin-left: 1px;
+				margin-right: 1px;
+				width: 100%;
+			}
+			
+			video {
+				width: 100%;
+				height: 200px;
+				background-color: #000000;
+			}
+			
+			.hui-header {
+				background-color: #d43d3d;
+			}
+			.footer{
+			height: 45px;
+			line-height: 45px;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+			background-color: #999;
+			color: #fff;
+			font-family: Arial;
+			font-size: 20px;
+			letter-spacing: 6px;
+			}
+		</style>
+	</head>
+	<body onresize="resize();">
+		<header class="hui-header">
+			<div><img src="hui3.0/2.jpg"></div>
+			<h1 style="margin-right: 44px;">怪物科幻电影</h1>
+		</header>
+		<div class="hui-wrap">
+			<div id="vd">
+				<video id="py" autoplay="autoplay" controls="controls" src="http://tx.hls.huya.com/huyalive/30765679-2478268764-10644083292078342144-2847699106-10057-A-0-1.m3u8"></video>
+			</div>
+			<div class="hui-flex">
+				<div id="list" style="height: 486px;">
+					<div class="hui-list">
+		                    	<ul>	
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225539/chunklist.m3u8" title="天津卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">天津卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225533/chunklist.m3u8" title="北京卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">北京卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225534/chunklist.m3u8" title="安徽卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">安徽卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225514/chunklist.m3u8" title="江苏卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">江苏卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225548/chunklist.m3u8" title="东方卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">东方卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225538/chunklist.m3u8" title="湖北卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">湖北卫视</div></a>
+</li>	
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225546/chunklist.m3u8" title="河南卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">河南卫视</div></a>
+</li>	
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225540/chunklist.m3u8" title="辽宁卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">辽宁卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225541/chunklist.m3u8" title="广东卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">广东卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225549/chunklist.m3u8" title="重庆卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">重庆卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225535/chunklist.m3u8" title="山东卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">山东卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225536/chunklist.m3u8" title="深圳卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">深圳卫视</div></a>
+</li>
+<li>
+<a id="http://121.31.30.90:8085/ysten-business/live/hdhunanstv/1.m3u8" title="湖南卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">湖南卫视</div></a>
+</li>
+<li>
+<a id="http://112.50.243.7/PLTV/88888888/224/3221225827/index.m3u8" title="湖南卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">湖南卫视</div></a>
+</li>
+<li>
+<a id="http://121.31.30.90:8085/ysten-business/live/zhejiangstv/1.m3u8" title="浙江卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">浙江卫视</div></a>
+</li>
+<li>
+<a id="http://112.50.243.7/PLTV/88888888/224/3221225825/index.m3u8" title="浙江卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">浙江卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225537/chunklist.m3u8" title="江西卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">江西卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225542/chunklist.m3u8" title="四川卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">四川卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225545/chunklist.m3u8" title="云南卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">云南卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225547/chunklist.m3u8" title="河北卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">河北卫视</div></a>
+</li>
+<li>
+<a id="http://219.153.252.50/PLTV/88888888/224/3221225544/chunklist.m3u8" title="黑龙江卫视" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">黑龙江卫视</div></a>
+</li>
+<li>
+<a href="http://hlsmgzblive.miguvideo.com:8080/wd_r2/cctv/cctv1hd/350/index.m3u8" title="CCTV1综合 HD" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">CCTV1综合 HD</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29169025-2686219938-11537226783573147648-2847699096-10057-A-1524024759-1.m3u8" title="甄子丹电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">甄子丹电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/94525224-2467341872-10597152648291418112-2789274550-10057-A-0-1_1200.m3u8" title="刘德华电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">刘德华电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/94525224-2460685774-10568564925062447104-2789253840-10057-A-0-1.m3u8" title="周润发电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">周润发电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/94525224-2460685722-10568564701724147712-2789253838-10057-A-0-1_1200.m3u8" title="成龙电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">成龙电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/94525224-2579683592-11079656661667807232-2847687574-10057-A-0-1_1200.m3u8" title="王晶电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">王晶电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/29106097-2689447148-11551087544980471808-2789253872-10057-A-1525420294-1_1200.m3u8" title="徐克电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">徐克电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/30765679-2689675828-11552069718101721088-3048991626-10057-A-0-1.m3u8" title="徐峥电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">徐峥电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/30765679-2554414705-10971127618396487680-3048991636-10057-A-0-1.m3u8" title="吴京电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">吴京电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/94525224-2460685313-10568562945082523648-2789274524-10057-A-0-1_1200.m3u8" title="周星驰" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">周星驰电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29106097-2689406282-11550912026846953472-2789274558-10057-A-0-1_1200.m3u8" title="洪金宝" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">洪金宝电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/94525224-2460686034-10568566041753944064-2789274542-10057-A-0-1_1200.m3u8" title="林正英" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">林正英电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29169025-2686220040-11537227221659811840-2713685416-10057-A-1524041498-1.m3u8?u0026amp;virtualDomainu003d001.live_hls.zte.com" title="古天乐电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">古天乐电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29106097-2689406818-11550914328949424128-2789274560-10057-A-1525417691-1.m3u8" title="迪士尼" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">迪士尼电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/29169025-2686220040-11537227221659811840-2713685416-10057-A-1524041498-1_1200.m3u8" title="五福星电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">五福星电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/94525224-2472147404-10617792251071299584-2777026638-10057-A-0-1.m3u8" title="女神电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">女神电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29169025-2686220598-11537229618251563008-2847687556-10057-A-1524043048-1.m3u8" title="警匪电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">警匪电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/29106097-2689279104-11550365801496182784-2777026902-10057-A-0-1_1200.m3u8" title="杰森斯坦森电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">杰森斯坦森电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/30765679-2504742278-10757786168918540288-3049003128-10057-A-0-1.m3u8" title="漫威电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">漫威电影</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/29169025-2686219962-11537226886652362752-2710080226-10057-A-0-1_1200.m3u8" title="好莱坞中文电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">好莱坞中文电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29106097-2689446042-11551082794746642432-2789253870-10057-A-0-1.m3u8?u0026amp;virtualDomainu003d001.live_hls.zte.com" title="赌王电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">赌王电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29106097-2689447600-11551089486305689600-2789274568-10057-A-1525420695-1.m3u8" title="惊悚大片" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">惊悚大片</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/30765679-2478268764-10644083292078342144-2847699106-10057-A-0-1.m3u8" title="怪物科幻电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">怪物科幻电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29106097-2689448236-11551092217904889856-2789274572-10057-A-0-1.m3u8" title="变形金刚电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">变形金刚电影</div></a>
+</li>
+<li>
+<a id="http://hls-ott-zhibo.wasu.tv/live/202/index.m3u8" title="TVB神剧" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">TVB神剧</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/30765679-2523417472-10837995516394995712-2847699158-10057-A-1521181527-1_1200.m3u8" title="舌尖上的中国" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">舌尖上的中国</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/28466698-2689656864-11551988268341919744-2847699194-10057-A-0-1_1200.m3u8" title="科幻电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">科幻电影</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/29106097-2689447600-11551089486305689600-2789274568-10057-A-1525420695-1.m3u8" title="惊悚电影" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">惊悚电影</div></a>
+</li>
+<li>
+<a id="https://aldirect.hls.huya.com/huyalive/29169025-2686219962-11537226886652362752-2710080226-10057-A-0-1_1200.m3u8" title="速度与激情" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">速度与激情</div></a>
+</li>
+<li>
+<a id="http://tx.hls.huya.com/huyalive/30765679-2591336344-11129704850416205824-3048991622-10057-A-0-1.m3u8" title="复仇者联盟" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">复仇者联盟</div></a>
+</li>
+<li>
+<a id="http://aldirect.hls.huya.com/huyalive/30765679-2504742278-10757786168918540288-3049003128-10057-A-0-1_1200.m3u8" title="欧美大片" href="javascript:;" onclick="play(this)">
+<div class="hui-list-icons"><img src="hui3.0/tv.png"></div><div class="hui-list-text">欧美大片</div></a>
+</li>
+
+		                  </ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			resize();
+
+			function play(obj) {
+				var isWap = navigator.userAgent.match(/iPad|iPhone|iPod|Android/i) != null;
+				if(isWap) {
+					$('#py').attr('src', obj.id);
+					$('h1').html(obj.title);
+				} else {
+					alert('请使用移动端播放');
+				}
+
+			}
+            function GetHeight(){
+				var winInfo = {height:0, width:0, scrollTop:0};
+				if(window.innerHeight){
+					winInfo.height = window.innerHeight;
+				}else if((document.body)&&(document.body.clientHeight)){
+					winInfo.height = document.body.clientHeight;
+				}
+				if(window.innerWidth){
+					winInfo.width = window.innerWidth;
+				}else if((document.body)&&(document.body.clientWidth)){
+					winInfo.width = document.body.clientWidth;
+				}
+				if(document.documentElement && document.documentElement.scrollTop){
+					winInfo.scrollTop = document.documentElement.scrollTop;
+				}else if(document.body){
+					winInfo.scrollTop = document.body.scrollTop;
+				}
+				return winInfo;
+			}
+			function resize() {
+				var winInfo = GetHeight();
+				$('#list').css({
+					height: (winInfo.height - 250) + 'px'
+				});
+			}
+		</script>
+</body></html>
