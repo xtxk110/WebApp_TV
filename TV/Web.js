@@ -4,7 +4,7 @@ function GetWebUrl(){
                   {name:"腾讯视频",url:"https://m.v.qq.com/"},
                   {name:"优酷视频",url:"https://www.youku.com/"},
                   {name:"搜狐视频",url:"https://m.tv.sohu.com/"},
-                  {name:"移动电影院",url:"http://www.1ddy.com/#?no"},
+                  {name:"全民影院",url:"http://m2.cnsalu.com/#?no"},
                   {name:"VIP影视",url:"https://www.sjzvip.com/#?no"}
 	         ];
 	return data;
